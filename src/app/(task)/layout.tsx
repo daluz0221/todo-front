@@ -1,4 +1,4 @@
-import { SideBar, TopMenu } from "@/components";
+import { Header, SideBar } from "@/components";
 
 
 
@@ -9,17 +9,18 @@ export default function RootLayout({
 }>) {
   return (
 
-      <main
-        className={`flex antialiased bg-blue-400 min-h-screen w-full `}
-      >
-        <SideBar />
-        <div className="w-full">
-            <TopMenu />
-            <div className="pl-8">
-                {children}
-            </div>
-        </div>
-      </main>
+    <div className="flex h-screen overflow-hidden">
+      <SideBar />
+      <div className="flex flex-col flex-1 overflow-auto"> 
+      <div className="max-w-7xl mx-auto w-full">
+
+        <Header />
+        <main className="pl-8">
+          {children}
+        </main>
+      </div>
+      </div>
+    </div>
 
   );
 }
