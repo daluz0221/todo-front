@@ -1,6 +1,6 @@
 'use client';
 
-import { Bell, DollarSign, House, Info, Mail, Settings, ShoppingBag, ShoppingCart, Users } from "lucide-react"
+import { Bell, DollarSign, House, Info, Mail, Menu, Settings, ShoppingBag, ShoppingCart, Users } from "lucide-react"
 import Link from "next/link";
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -27,6 +27,7 @@ interface ItemsProps {
 
 export const SideBar = () => {
 
+  const [isOpen, setIsOpen] = useState(true)
   const [sidebarItems, setSidebarItems] = useState<ItemsProps[] | []>([]);
   const pathName = usePathname();
 
@@ -37,28 +38,31 @@ export const SideBar = () => {
 
   console.log(sidebarItems);
 
-  if(sidebarItems.length === 0){
-    return <p>Cargando...</p>
-  }
-  
-  
 
   return (
-    <div className="relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 w-64">
+    <div className={`relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 ${ isOpen ? "w-64" : "w-20" }`}>
         <div className="h-full bg-[#1e1e1e] backdrop-blur-md p-4 flex flex-col border-r border-[#2f2f2f]">
+
+          <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-full hover:bg-[#2f2f2f] transition-colors max-w-fit cursor-pointer">
+            <Menu size={24} />
+          </button>
+
           <nav className="mt-8 flex-grow">
             {
-              sidebarItems.map( item => {
+              sidebarItems.length === 0 ? (
+            <p className="text-gray-400 text-sm">Cargando...</p>
+          ):
+              (sidebarItems.map( item => {
                 const IconComponent = ICONS[item.icon]
                 return (
                   <Link key={item.name} href={ item.href }>
-                      <div className={`flex items-center p-4 text-sm font-medium rounded-lg hover:bg-[#2f2f2f] transition-colors mb-2 ${ pathName === item.href ? "bg-[#2f2f2f]" : "" }`}>
+                      <div className={`flex items-center p-4 text-sm font-medium rounded-lg hover:bg-[#2f2f2f] transition-colors mb-2 ${ pathName === item.href ? "bg-[#2f2f2f]" : "" } `}>
                           <IconComponent size={20} style={{minWidth: "20px"}} />
-                          <span className="ml-4 whitespace-nowrap" >{ item.name }</span>
+                          <span className={`ml-4 whitespace-nowrap transition-all duration-300 overflow-hidden ${ isOpen ? 'opacity-100 w-auto' : 'opacity-0 w-0' }`} >{ item.name }</span>
                       </div>
                   </Link>
                 )
-              })
+              }))
             }
           </nav>
         </div>
