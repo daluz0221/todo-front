@@ -1,4 +1,4 @@
-import { StatCard } from "@/components";
+import { CategoryDistributionChart, SalesOverviewChart, StatCard } from "@/components";
 import { DollarSign, ShoppingBag, SquareActivity, Users } from "lucide-react";
 
 
@@ -12,6 +12,11 @@ export default function OverviewPage() {
           <StatCard name="Total Clients" icon={<Users className="mr-2" />} value="1,234" />
           <StatCard name="Total Products" icon={<ShoppingBag className="mr-2" />} value="524" />
           <StatCard name="Stock" icon={<SquareActivity className="mr-2" />} value="58,349" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <SalesOverviewChart />
+          <CategoryDistributionChart />
         </div>
       </div>
     </div>
