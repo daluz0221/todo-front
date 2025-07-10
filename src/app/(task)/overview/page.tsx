@@ -1,4 +1,4 @@
-import { CategoryDistributionChart, SalesOverviewChart, StatCard } from "@/components";
+import { CategoryDistributionChart, OrderDistributionChart, ProductPerformanceChart, SalesOverviewChart, StatCard } from "@/components";
 import { DollarSign, ShoppingBag, SquareActivity, Users } from "lucide-react";
 
 
@@ -17,6 +17,8 @@ export default function OverviewPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <SalesOverviewChart />
           <CategoryDistributionChart />
+          <OrderDistributionChart />
+          <ProductPerformanceChart />
         </div>
       </div>
     </div>
