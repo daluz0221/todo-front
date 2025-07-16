@@ -10,3 +10,4 @@ export * from './ui/charts/SalesOverviewChart';
 export * from './ui/header/header';
 export * from './ui/sidebar/SideBar';
 export * from './ui/tables/ProductsTable';
+export * from './ui/tables/UsersTable';
