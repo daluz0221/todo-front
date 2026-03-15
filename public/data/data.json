@@ -200,12 +200,6 @@
   "sidebarItems": [
     { "name": "Dashboard", "icon": "House", "href": "/" },
     { "name": "Products", "icon": "ShoppingBag", "href": "/products" },
-    { "name": "Clients", "icon": "Users", "href": "/users" },
-    { "name": "Sales", "icon": "DollarSign", "href": "/sales" },
-    { "name": "Orders", "icon": "ShoppingCart", "href": "/orders" },
-    { "name": "Settings", "icon": "Settings", "href": "" },
-    { "name": "Messages", "icon": "Mail", "href": "" },
-    { "name": "Notifications", "icon": "Bell", "href": "" },
-    { "name": "Help", "icon": "Info", "href": "" }
+    { "name": "Clients", "icon": "Users", "href": "/users" }
   ]
 }
