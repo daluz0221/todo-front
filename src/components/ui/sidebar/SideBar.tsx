@@ -36,7 +36,7 @@ export const SideBar = () => {
     .then( data => setSidebarItems(data.sidebarItems) )
   }, [])
 
-  console.log(sidebarItems);
+  
 
 
   return (

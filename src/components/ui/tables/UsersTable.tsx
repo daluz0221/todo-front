@@ -37,7 +37,7 @@ export const UsersTable = () => {
                 const data = await resp.json()
                 setUsers(data.clients)
             } catch (error) {
-                console.log("error en fetching clients data");
+                console.log("error en fetching clients data", error);
                          
             }
         }
@@ -54,12 +54,7 @@ export const UsersTable = () => {
       setEditingRow(null)
     };
 
-    const handleChange = (id: string, field: keyof User, value: string) => {
-      
-        if(!/^\d*\.?\d*$/.test(value)) return;
-        setUsers((prevProducts)=> prevProducts.map((product) => product.id === id ? {...product, [field]: Number(value)} : product ))
-
-    };
+   
 
     const handleDelete = (id:string) => {
       const confirmDelete = window.confirm("Are you sure you want to delete this Client?")

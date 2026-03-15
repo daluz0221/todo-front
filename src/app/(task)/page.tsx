@@ -9,11 +9,8 @@ export const metadata = {
  description: 'Home Page',
 };
 
-const categories = [
-    {
-        "id": "1"
-    }
-]
+
+
 
 export default function Home() {
 
